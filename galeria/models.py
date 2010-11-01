@@ -1,6 +1,6 @@
 # coding=UTF-8
 from django.db import models
-
+from django.contrib import admin
 
 STAN_DYWANU = (
  ('D','Dostępny'),
@@ -38,7 +38,18 @@ class Zdjecie(models.Model):
 class Kontrahent(models.Model):
 	imie = models.CharField(max_length=255)
 	nazwisko = models.CharField(max_length=255)
-	
+
+class ZdjecieInline(admin.StackedInline):
+	model = Zdjecie
+	extra =3
+
+class DywanAdmin(admin.ModelAdmin):
+	fieldset = [
+	(None,               {'fields': ['kod','nazwa','wysokosc','szerokosc']}),
+	        ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
+			]
+
+
 class Akcja(models.Model):
 	data = models.DateTimeField()
 	typ = models.CharField(max_length=1, choices=TYP_AKCJI)
