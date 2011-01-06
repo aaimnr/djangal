@@ -1,4 +1,4 @@
-from djang.galeria.models import Dywan, Kontrahent, Zdjecie
+from djangal.galeria.models import Dywan, Kontrahent, Zdjecie
 from django.contrib import admin
 
 admin.site.register( Zdjecie)

@@ -94,7 +94,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'djang.urls'
+ROOT_URLCONF = 'djangal.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -109,7 +109,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-	'djang.galeria',
+	'djangal.galeria',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
 )

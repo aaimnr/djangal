@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Example:
-    # (r'^djang/', include('djang.foo.urls')),
+    # (r'^djang/', include('djangal.foo.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve',
 	        {'document_root': '/Users/am/short/dj/media'}),
-	(r'^dywan/(?P<dywan_id>\d+)/$', 'djang.galeria.views.dywan'),
-	(r'^album/(?P<album_id>\d+)/$', 'djang.galeria.views.album'),
-	(r'^albumy/$', 'djang.galeria.views.albumy'),
+	(r'^dywan/(?P<dywan_id>\d+)/$', 'djangal.galeria.views.dywan'),
+	(r'^album/(?P<album_id>\d+)/$', 'djangal.galeria.views.album'),
+	(r'^albumy/$', 'djangal.galeria.views.albumy'),
 )
