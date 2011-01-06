@@ -17,6 +17,6 @@ urlpatterns = patterns('',
 	(r'^media/(?P<path>.*)$', 'django.views.static.serve',
 	        {'document_root': '/Users/am/short/dj/media'}),
 	(r'^dywan/(?P<dywan_id>\d+)/$', 'djang.galeria.views.dywan'),
-	(r'^galeria$', 'djang.galeria.views.galeria'),
-	
+	(r'^album/(?P<album_id>\d+)/$', 'djang.galeria.views.album'),
+	(r'^albumy/$', 'djang.galeria.views.albumy'),
 )

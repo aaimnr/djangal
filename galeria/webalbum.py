@@ -16,14 +16,17 @@ import gdata.geo
 def textOrEmpty(x):
 	return x if x is not None else ""
 
-def getPhotosHtml():
+def getPhotosHtml(album_id):
 	client = getAuthClient()
-	photos = getPhotos(client)
+	photos = getPhotos(client, album_id)
 	out = ""
 	for photo in photos.entry:
 		out+= "<a href='%s'><img src='%s'/></a><span>%s</span>\n" % (photo.content.src, photo.media.thumbnail[0].url, textOrEmpty(photo.summary.text))
 	return out
 		
+def getAlbums():
+	client = getAuthClient()
+	albums = gd_client.GetUserFeed()
 
 def getAuthClient():
 	gd_client = gdata.photos.service.PhotosService()
@@ -33,10 +36,14 @@ def getAuthClient():
 	gd_client.ProgrammaticLogin()
 	return	gd_client
 	
-def getPhotos(gd_client):
-	album = gd_client.GetUserFeed().entry[0]
-	photos = gd_client.GetFeed('/data/feed/api/user/default/albumid/%s?kind=photo' % (album.gphoto_id.text))
+def getPhotos(gd_client, album_id):
+	photos = gd_client.GetFeed('/data/feed/api/user/default/albumid/%s?kind=photo' % (album_id))
 	return photos
+	
+def getAlbumsData(gd_client):
+	albums = gd_client.GetUserFeed().entry
+	albumsData = [(a.gphoto_id.text, a.name.text) for a in albums]
+	return albumsData
 
 def main():
 	gd_client = gdata.photos.service.PhotosService()

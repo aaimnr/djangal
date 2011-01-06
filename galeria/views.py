@@ -7,7 +7,21 @@ def index(request):
 def dywan(request, dywan_id):
 	d = get_object_or_404(Dywan, pk=dywan_id)
 	return render_to_response('dywan.html',{'dywan':d})
+	
+	
+def albumy(request):
+	client = webalbum.getAuthClient()
+	albsData = webalbum.getAlbumsData(client)
+	#return HttpResponse(albsData[0])
+	return render_to_response('albumy.html', {'albsData':albsData})
+	
+def album(request, album_id):
+	ht=webalbum.getPhotosHtml(album_id)
+	return HttpResponse(ht)
+	
 def galeria(request):
 	ht=webalbum.getPhotosHtml()
 	return HttpResponse(ht)
+	
+	
 	
