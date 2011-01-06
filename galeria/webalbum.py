@@ -30,8 +30,8 @@ def getAlbums():
 
 def getAuthClient():
 	gd_client = gdata.photos.service.PhotosService()
-	gd_client.email = 'ha5en1@gmail.com'
-	gd_client.password = 'Yasgma62'
+	gd_client.email = ''
+	gd_client.password = ''
 	#gd_client.source = 'exampleCo-exampleApp-1'
 	gd_client.ProgrammaticLogin()
 	return	gd_client
