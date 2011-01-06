@@ -3,7 +3,7 @@ import socket
 
 local = socket.gethostname() == 'mbp.local'
 if local:
-    prefix = '/Users/am/Documents/Dev/djang'
+    prefix = '/Users/am/Documents/Dev/djangal'
 else:
 	prefix = '/home/ec2-user/src/djangal'
 

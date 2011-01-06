@@ -12,6 +12,7 @@ import os
 import gdata.photos.service
 import gdata.media
 import gdata.geo
+import prefs
 
 def textOrEmpty(x):
 	return x if x is not None else ""
@@ -30,8 +31,8 @@ def getAlbums():
 
 def getAuthClient():
 	gd_client = gdata.photos.service.PhotosService()
-	gd_client.email = '@gmail.com'
-	gd_client.password = ''
+	gd_client.email = prefs.USER
+	gd_client.password = prefs.PASS
 	#gd_client.source = 'exampleCo-exampleApp-1'
 	gd_client.ProgrammaticLogin()
 	return	gd_client
@@ -47,8 +48,8 @@ def getAlbumsData(gd_client):
 
 def main():
 	gd_client = gdata.photos.service.PhotosService()
-	gd_client.email = ''
-	gd_client.password = ''
+	gd_client.email = prefs.USER
+	gd_client.password = prefs.PASS
 	#gd_client.source = 'exampleCo-exampleApp-1'
 	gd_client.ProgrammaticLogin()
 	
